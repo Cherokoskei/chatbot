@@ -1,0 +1,48 @@
+responses = {  
+    "bitcoin": {  
+        "price_trend": "rising",  
+        "market_cap": "high",  
+        "energy_use": "high",  
+        "sustainability_score": 3/10  
+    },  
+    "Ethereum": {  
+        "price_trend": "stable",  
+        "market_cap": "high",  
+        "energy_use": "medium",  
+        "sustainability_score": 6/10  
+    },  
+    "Cardano": {  
+        "price_trend": "rising",  
+        "market_cap": "medium",  
+        "energy_use": "low",  
+        "sustainability_score": 8/10  
+    }  
+}  
+
+def get_bot_response(user_input):
+    if "sustainable" in user_input.lower():
+        recommend = max(responses, key=lambda x: responses[x]["sustainability_score"])
+        return f"Invest in {recommend.capitalize()}! 🌱 It’s eco-friendly and has long-term potential!"
+        
+    elif "energy use" in user_input.lower():
+        recommend = max(responses, key=lambda x: responses[x]["energy_use"])
+        return f"Invest in {recommend.capitalize()}! 🌱 It’s eco-friendly and has long-term potential!"
+        
+    elif "market cap" in user_input.lower():
+        recommend = max(responses, key=lambda x: responses[x]["market_cap"])
+        return f"Invest in {recommend.capitalize()}! 🌱 It’s eco-friendly and has long-term potential"#
+        
+    elif "price trend" in user_input.lower():
+        recommend = max(responses, key=lambda x: responses[x]["price_trend"])
+        return f"Invest in {recommend.capitalize()}! 🌱 It’s eco-friendly and has long-term potential"
+    else:
+        return "I can help with sustainability info. Try asking which cryptocurrency is most sustainable."
+
+while True:
+    user_input = input("You: ")
+    if user_input.lower() in ["quit", "exit", "bye"]:
+        print("Bot: Goodbye! If you have any more questions, we're here to help.")
+        break
+
+    response = get_bot_response(user_input)
+    print(f"cryptobuddy: {response}")
