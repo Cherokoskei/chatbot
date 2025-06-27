@@ -46,3 +46,5 @@ while True:
 
     response = get_bot_response(user_input)
     print(f"cryptobuddy: {response}")
+
+![Screenshot from 2025-06-27 17-29-46.png]
